@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-character-card {
+    @apply backdrop-blur-sm rounded-lg overflow-hidden text-white bg-[rgb(255,255,255,0.2)];
+    @apply text-left border-2 border-transparent min-h-[160px];
+  }
+  .fa-character-card.not-empty {
+    @apply cursor-pointer transition duration-150 ease-in-out hover:scale-[1.05] hover:border-2 hover:border-yellow-400 hover:border-solid;
+  }
+}

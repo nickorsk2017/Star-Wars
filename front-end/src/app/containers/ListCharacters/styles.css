@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-list-characters {
+    @apply flex flex-col;
+  }
+
+  .fa-list-characters__wrapper {
+    @apply grid grid-cols-4 grid-rows-1 gap-3 gap-y-8 pt-8;
+  }
+
+  .fa-list-characters__btn {
+    @apply flex items-center justify-center cursor-pointer;
+    @apply text-yellow-500 w-full min-h-16 mb-8 hover:opacity-80;
+  }
+}

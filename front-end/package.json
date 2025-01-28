@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "daisyui": "^4.12.23",
+    "lodash.debounce": "^4.0.8",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swr": "^2.3.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/lodash.debounce": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

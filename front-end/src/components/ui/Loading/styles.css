@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-loading {
+    @apply w-full;
+  }
+
+  .fa-loading__icon {
+    @apply !w-40 h-40 !bg-primary;
+  }
+}

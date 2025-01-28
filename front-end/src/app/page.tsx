@@ -1,10 +1,11 @@
+import CharactersPage from "./containers/Page/Page";
+import type { Metadata } from "next";
 
-export default function Home() {
-  return (
-    <div>
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-       Hello world
-      </main>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "List of characters",
+  description: "This page contains list of characters",
+};
+
+export default function MainPage() {
+  return <CharactersPage />;
 }

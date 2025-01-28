@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-container {
+    @apply inline-flex flex-col w-[1200px] h-auto;
+  }
+}
