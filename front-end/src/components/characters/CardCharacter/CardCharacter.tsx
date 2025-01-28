@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Link from "next/link";
 import "./styles.css";
 
 type Props = {
@@ -6,20 +7,31 @@ type Props = {
 };
 
 const CharacterCard: FC<Props> = ({ data }) => {
-  const notEmptyClass = !!data ? "not-empty" : "";
+  if (!data) {
+    return (
+      <div className="fa-character-card">
+        <div className="card-body"></div>
+      </div>
+    );
+  }
+  const url = data?.url || "";
+  const matchId = url.match(/\/(\d+)/);
+  const id = matchId ? matchId[1] : 1;
 
   return (
-    <div className={`fa-character-card ${notEmptyClass}`}>
-      <div className="card-body">
-        {data && (
-          <>
-            <h2 className="card-title text-primary">{data.name}</h2>
-            <p>Birth: {data.birth_year}</p>
-            <p>Height: {data.height}</p>
-          </>
-        )}
+    <Link href={`/character/${id}`}>
+      <div className="fa-character-card not-empty">
+        <div className="card-body">
+          {data && (
+            <>
+              <h2 className="card-title text-primary">{data.name}</h2>
+              <p>Birth: {data.birth_year}</p>
+              <p>Height: {data.height}</p>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

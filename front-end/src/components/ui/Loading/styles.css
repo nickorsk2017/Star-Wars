@@ -3,7 +3,7 @@
 
 @layer components {
   .fa-loading {
-    @apply w-full;
+    @apply w-full text-center;
   }
 
   .fa-loading__icon {

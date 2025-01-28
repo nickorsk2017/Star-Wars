@@ -1,4 +1,4 @@
-import CharactersPage from "./containers/Page/Page";
+import ListCharacters from "@/containers/characters/ListCharactersPage/ListCharactersPage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function MainPage() {
-  return <CharactersPage />;
+  return <ListCharacters />;
 }

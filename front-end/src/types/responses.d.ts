@@ -8,4 +8,8 @@ declare namespace Responses {
   };
 
   type CharactersResponse = Entity.Response<Entity.Character>;
+
+  type CharacterDetailResponse = Entity.Response<
+    Entity.Character | { detail: string }
+  >;
 }
