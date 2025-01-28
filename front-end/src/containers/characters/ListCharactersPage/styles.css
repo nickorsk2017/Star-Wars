@@ -3,6 +3,6 @@
 
 @layer components {
   .fa-characters-list {
-    @apply grid grid-cols-4 grid-rows-1 gap-3 gap-y-8 pt-8 pb-8;
+    @apply grid grid-cols-4 grid-rows-1 gap-5 gap-y-8 pt-8 pb-8;
   }
 }

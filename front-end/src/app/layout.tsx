@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { SoundEffects } from "@/components/ui";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,9 +20,10 @@ export default function MainLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} h-screen`}>
-        <div className="h-full w-full overflow-auto text-center">
+        <div id="root" className="h-full w-full overflow-auto text-center">
           {children}
         </div>
+        <SoundEffects />
       </body>
     </html>
   );

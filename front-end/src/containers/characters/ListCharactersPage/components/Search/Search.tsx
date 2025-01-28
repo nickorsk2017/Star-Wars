@@ -8,7 +8,7 @@ type Props = {
   onChange: (value: string) => void;
 };
 
-const SearchPanel: FC<Props> = ({ onChange }) => {
+const Search: FC<Props> = ({ onChange }) => {
   const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     onChange(value);
@@ -42,4 +42,4 @@ const SearchPanel: FC<Props> = ({ onChange }) => {
   );
 };
 
-export default SearchPanel;
+export default Search;

@@ -3,6 +3,6 @@
 
 @layer components {
   .fa-container {
-    @apply inline-flex flex-col w-[1200px] h-auto;
+    @apply inline-flex flex-col w-full max-w-[1200px] h-auto pr-4 pl-4;
   }
 }

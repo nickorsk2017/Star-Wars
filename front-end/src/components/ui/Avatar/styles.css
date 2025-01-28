@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-avatar {
+    @apply h-56 border-2 flex flex-col bg-gray-300 text-black items-center justify-center;
+  }
+
+  .fa-avatar__wrapper {
+    @apply w-36 h-44 relative;
+  }
+}

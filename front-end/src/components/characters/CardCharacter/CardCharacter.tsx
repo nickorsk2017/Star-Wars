@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Avatar } from "@/components/ui";
 import Link from "next/link";
 import "./styles.css";
 
@@ -9,7 +10,7 @@ type Props = {
 const CharacterCard: FC<Props> = ({ data }) => {
   if (!data) {
     return (
-      <div className="fa-character-card">
+      <div className="fa-character-card empty">
         <div className="card-body"></div>
       </div>
     );
@@ -22,6 +23,7 @@ const CharacterCard: FC<Props> = ({ data }) => {
     <Link href={`/character/${id}`}>
       <div className="fa-character-card not-empty">
         <div className="card-body">
+          <Avatar />
           {data && (
             <>
               <h2 className="card-title text-primary">{data.name}</h2>
