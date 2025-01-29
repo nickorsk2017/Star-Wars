@@ -11,7 +11,7 @@ const Loading: FC<Props> = ({ loading }) => {
   }
 
   return (
-    <div className="fa-loading">
+    <div className="fa-loading" role="icon" data-testid="loading-component">
       <span className="fa-loading__icon loading loading-ring"></span>
     </div>
   );

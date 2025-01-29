@@ -1,12 +1,5 @@
 "use client";
-import {
-  FC,
-  PropsWithChildren,
-  Ref,
-  useRef,
-  useImperativeHandle,
-  RefObject,
-} from "react";
+import { FC, PropsWithChildren, Ref, useRef, useEffect } from "react";
 import "./styles.css";
 
 export type ModalHandler = {
@@ -16,36 +9,43 @@ export type ModalHandler = {
 
 type Props = {
   title: string;
-  ref: RefObject<unknown>;
+  open: boolean;
+  onClose?: () => void;
 };
 
-const Modal: FC<PropsWithChildren<Props>> = ({ title, children, ref }) => {
+const Modal: FC<PropsWithChildren<Props>> = ({
+  title,
+  children,
+  open,
+  onClose,
+}) => {
   const containerRef: Ref<HTMLDialogElement> = useRef(null);
 
-  useImperativeHandle(
-    ref,
-    (): ModalHandler => {
-      return {
-        show: () => {
-          containerRef.current!.show();
-        },
-        close: () => {
-          containerRef.current!.close();
-        },
-      };
-    },
-    []
-  );
+  useEffect(() => {
+    if (containerRef.current) {
+      if (open) {
+        containerRef.current.setAttribute("open", "");
+      } else {
+        containerRef.current.removeAttribute("open");
+      }
+    }
+  }, [open]);
 
   return (
-    <dialog ref={containerRef} className="fa-modal">
+    <dialog role="dialog" ref={containerRef} className="fa-modal">
       <div className="fa-modal__body">
         <h3 className="fa-modal__title">{title}</h3>
         <div className="fa-modal__wrapper">{children}</div>
       </div>
-      <form method="dialog" className="fa-modal__backdrop">
-        <button></button>
-        <button className="fa-modal__btn">X</button>
+      <form
+        method="dialog"
+        data-testid="modal-button"
+        className="fa-modal__backdrop"
+        onClick={onClose}
+      >
+        <button role="button" className="fa-modal__btn" type="button">
+          X
+        </button>
       </form>
     </dialog>
   );

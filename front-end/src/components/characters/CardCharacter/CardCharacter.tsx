@@ -10,7 +10,7 @@ type Props = {
 const CharacterCard: FC<Props> = ({ data }) => {
   if (!data) {
     return (
-      <div className="fa-character-card empty">
+      <div role="card" className="fa-character-card empty">
         <div className="card-body"></div>
       </div>
     );
@@ -21,7 +21,7 @@ const CharacterCard: FC<Props> = ({ data }) => {
 
   return (
     <Link href={`/character/${id}`}>
-      <div className="fa-character-card not-empty">
+      <div role="card" className="fa-character-card not-empty">
         <div className="card-body">
           <Avatar />
           {data && (

@@ -1,6 +1,6 @@
 "use client";
-import { FC, useState, useMemo, useRef } from "react";
-import { Loading, Modal, ModalHandler } from "@/components/ui";
+import { FC, useState, useMemo } from "react";
+import { Loading, Modal } from "@/components/ui";
 import { parserData } from "./parser";
 import "./styles.css";
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const InfoLoader: FC<Props> = ({ type, urls }) => {
-  const refModal = useRef<ModalHandler>(null);
+  const [modalShown, showModal] = useState(false);
   const [data, setData] = useState<Types.RecordsData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -30,7 +30,7 @@ const InfoLoader: FC<Props> = ({ type, urls }) => {
   };
 
   const loadData = async () => {
-    refModal.current!.show();
+    showModal(true);
 
     if (!data.length && !loading) {
       setLoading(true);
@@ -45,13 +45,21 @@ const InfoLoader: FC<Props> = ({ type, urls }) => {
     }
   };
 
+  const closeModal = () => {
+    showModal(false);
+  };
+
   return (
     <div className="fa-info-loader">
-      <button className="fa-info-loader__btn" onClick={loadData}>
+      <button
+        data-testid="info-loader-btn"
+        className="fa-info-loader__btn"
+        onClick={loadData}
+      >
         {type}
       </button>
 
-      <Modal title={type} ref={refModal}>
+      <Modal title={type} open={modalShown} onClose={closeModal}>
         {!data.length && <Loading loading />}
         {JSX}
       </Modal>

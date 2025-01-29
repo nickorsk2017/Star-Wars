@@ -1,14 +1,13 @@
 "use client";
-import { FC, useRef } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { DetailCharacterState } from "@/store/characters/detail/store";
-import { Modal, ModalHandler, InputText } from "@/components/ui";
+import { Modal, TextInput } from "@/components/ui";
 import { Pencil } from "@/components/icons";
 import "./styles.css";
 
 type Props = {
-  data: Entity.Character;
-  updateCharacter: DetailCharacterState["updateCharacter"];
+  data: Partial<Entity.Character>;
+  updateCharacter: (data: Partial<Entity.Character>) => void;
 };
 
 type FormValue = Pick<Entity.Character, "name" | "height" | "mass">;
@@ -38,6 +37,7 @@ const rules = {
 };
 
 const EditCharacter: FC<Props> = ({ data: initData, updateCharacter }) => {
+  const [modalShown, showModal] = useState(false);
   const {
     register,
     handleSubmit,
@@ -50,44 +50,54 @@ const EditCharacter: FC<Props> = ({ data: initData, updateCharacter }) => {
     },
   });
 
-  const refModal = useRef<ModalHandler>(null);
-
   const onClick = async () => {
-    refModal.current!.show();
+    showModal(true);
+  };
+
+  const closeModal = () => {
+    showModal(false);
   };
 
   const onSubmit = (data: FormValue) => {
-    refModal.current!.close();
+    showModal(false);
     updateCharacter(data);
   };
 
   return (
     <div className="fa-edit-character">
       <Pencil className="fa-detail__pencil btn btn-ghost" onClick={onClick} />
-      <Modal title="Edit character" ref={refModal}>
+      <Modal title="Edit character" open={modalShown} onClose={closeModal}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <InputText
+          <TextInput
             label="Name"
             register={register}
             name="name"
+            inputTestId="Name"
             validation={rules.name}
             errorText={errors?.name?.message}
           />
-          <InputText
+          <TextInput
             label="Height"
             register={register}
             name="height"
+            inputTestId="Height"
             validation={rules.height}
             errorText={errors?.height?.message}
           />
-          <InputText
+          <TextInput
             label="Mass"
             register={register}
             name="mass"
+            inputTestId="Mass"
             validation={rules.mass}
             errorText={errors?.mass?.message}
           />
-          <button className="fa-edit-character__btn" type="submit">
+          <button
+            role="button"
+            className="fa-edit-character__btn"
+            type="submit"
+            data-testid="edit-character-btn"
+          >
             Submit
           </button>
         </form>

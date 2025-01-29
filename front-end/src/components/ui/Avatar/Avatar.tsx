@@ -4,14 +4,13 @@ import "./styles.css";
 
 const Avatar: FC = () => {
   return (
-    <div className="fa-avatar">
+    <div role="portrait" className="fa-avatar">
       <div className="fa-avatar__wrapper">
         <Image
           alt="Avatar"
           loading="lazy"
           src="/icon.png"
           fill
-          objectFit="contain"
           className="h-32 w-auto"
         />
       </div>

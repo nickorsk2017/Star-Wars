@@ -6,6 +6,7 @@ export default function Logo({ className = "" }: { className?: string }) {
       height="40px"
       version="1.0"
       viewBox="0 0 550 450"
+      role="icon"
       className={className}
     >
       <g>

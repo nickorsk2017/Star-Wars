@@ -37,7 +37,7 @@ export const useListLoader = <T>(
   queries: Record<string, string>
 ) => {
   const { data, error, isValidating, size, setSize } = useSWRInfinite<
-    Responses.Response<T>
+    Responses.ResponseList<T>
   >(
     (page, previousPageData) =>
       getKey({
