@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-input-text {
+    @apply w-full sm:w-[60%];
+  }
+  .fa-input-text__inp {
+    @apply w-full sm:max-w-full sm:ml-2;
+  }
+  .fa-input-text__err {
+    @apply text-red-600 h-6 ml-2 text-right;
+  }
+}

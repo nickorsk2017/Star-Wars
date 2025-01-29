@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .detail-character {
+    @apply flex rounded-lg border-2 border-yellow-500 backdrop-blur-sm;
+    @apply text-white bg-[rgb(255,255,255,0.2)] flex-col h-auto;
+    @apply sm:flex-row sm:h-[600px];
+  }
+
+  .detail-character__left {
+    @apply sm:w-[450px] h-full border-r-2 pt-24 pr-10 pl-10 relative;
+  }
+
+  .detail-character__title {
+    @apply mb-10 mt-3 text-4xl text-primary;
+  }
+
+  .detail-character__info {
+    @apply pt-24 pr-10 pl-10 grid sm:grid-rows-6;
+    @apply sm:grid-cols-[200px_200px];
+  }
+}

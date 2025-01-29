@@ -21,19 +21,13 @@ export const parserData = (data: Types.RecordsData[]) => {
 
       if (key === "title" || key === "name") {
         JSX = (
-          <h2
-            key={keyElement}
-            className="flex items-center justify-center h-10 w-full mb-5 font-extrabold border-b-2 bg-primary"
-          >
+          <h2 key={keyElement} className="fa-info-loader__head">
             {value}
           </h2>
         );
       } else {
         JSX = (
-          <div
-            key={keyElement}
-            className="grid gap-3 grid-cols-[200px_1fr] mb-5"
-          >
+          <div key={keyElement} className="fa-info-loader__row">
             <b>{key.replaceAll("_", " ")}:</b>
             <span>{value}</span>
           </div>

@@ -1,36 +1,43 @@
-import { FC } from "react";
+"use client";
+import { FC, useContext } from "react";
 import Link from "next/link";
+import { Context } from "@/store/characters/detail/Provider";
 import { Container, Avatar } from "@/components/ui";
 import RowInfo from "./components/RowInfo/RowInfo";
+import { useStore } from "zustand";
 import InfoLoader from "./components/InfoLoader/InfoLoader";
+import EditCharacter from "./components/EditCharacter/EditCharacter";
 import { Logo } from "@/components/icons";
+import "./styles.css";
 
-type Props = {
-  data: Entity.Character;
-};
+const DetailCharacterPage: FC = () => {
+  const store = useContext(Context);
 
-const DetailCharacterPage: FC<Props> = ({ data }) => {
+  const character = useStore(store!, (s) => s.character);
+  const updateCharacter = useStore(store!, (s) => s.updateCharacter);
+
   return (
     <Container>
       <Link href="/">
         <Logo className="h-20 w-44" />
       </Link>
-      <div className="flex h-[600px] rounded-lg border-2 border-yellow-500 backdrop-blur-sm text-white bg-[rgb(255,255,255,0.2)]">
-        <div className="w-[450px] h-full border-r-2 pt-24 pr-10 pl-10">
+      <div className="detail-character">
+        <div className="detail-character__left">
+          <EditCharacter data={character!} updateCharacter={updateCharacter} />
           <Avatar />
-          <h1 className="mb-10 mt-3 text-4xl text-primary">{data.name}</h1>
-          <RowInfo label="Birth" value={data.birth_year} />
-          <RowInfo label="Gender" value={data.gender} />
-          <RowInfo label="Mass" value={data.mass} />
-          <RowInfo label="Height" value={data.height} />
-          <RowInfo label="Skin" value={data.skin_color} />
+          <h1 className="detail-character__title">{character!.name}</h1>
+          <RowInfo label="Birth" value={character!.birth_year} />
+          <RowInfo label="Gender" value={character!.gender} />
+          <RowInfo label="Mass" value={character!.mass} />
+          <RowInfo label="Height" value={character!.height} />
+          <RowInfo label="Skin" value={character!.skin_color} />
         </div>
-        <div className="pt-24 pr-10 pl-10 grid grid-cols-[200px_200px] grid-rows-6">
-          <InfoLoader type="Starships" urls={data.starships} />
-          <InfoLoader type="Species" urls={data.species} />
-          <InfoLoader type="Films" urls={data.films} />
-          <InfoLoader type="Vehicles" urls={data.vehicles} />
-          <InfoLoader type="Planet" urls={[data?.homeworld || ""]} />
+        <div className="detail-character__info">
+          <InfoLoader type="Starships" urls={character!.starships} />
+          <InfoLoader type="Species" urls={character!.species} />
+          <InfoLoader type="Films" urls={character!.films} />
+          <InfoLoader type="Vehicles" urls={character!.vehicles} />
+          <InfoLoader type="Planet" urls={[character!.homeworld || ""]} />
         </div>
       </div>
     </Container>

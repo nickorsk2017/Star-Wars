@@ -1,5 +1,5 @@
 "use client";
-import { FC, useMemo } from "react";
+import { FC, useMemo, useEffect } from "react";
 import { useGetCharacters } from "@/api";
 import { Loading } from "@/components/ui";
 import { CardCharacter } from "@/components/characters";
@@ -16,6 +16,8 @@ const ListCharacters: FC<Props> = ({ search }) => {
     isLoading,
     loadMore,
   } = useGetCharacters(search);
+
+  useEffect(() => {}, [characters]);
 
   const JSX = useMemo(() => {
     return characters.map((data) => {

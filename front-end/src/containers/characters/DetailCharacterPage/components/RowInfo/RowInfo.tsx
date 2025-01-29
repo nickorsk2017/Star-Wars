@@ -8,7 +8,7 @@ type Props = {
 
 const RowInfo: FC<Props> = ({ label, value }) => {
   return (
-    <div className="grid grid-cols-[112px_200px] text-left">
+    <div className="fa-row-info">
       <div className="">{label}:</div>
       <div>{value}</div>
     </div>

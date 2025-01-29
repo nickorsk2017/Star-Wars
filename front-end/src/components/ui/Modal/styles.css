@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-modal {
+    @apply modal;
+  }
+
+  .fa-modal__body {
+    @apply modal-box text-black sm:min-w-[700px] pb-14;
+  }
+
+  .fa-modal__wrapper {
+    @apply max-h-[400px] sm:max-h-[400px] overflow-auto text-left;
+  }
+
+  .fa-modal__title {
+    @apply font-bold text-lg mb-6;
+  }
+
+  .fa-modal__backdrop {
+    @apply modal-backdrop rounded-xl bg-[rgba(0,0,0,0.9)];
+  }
+
+  .fa-modal__btn {
+    @apply absolute right-10 top-10 text-white;
+  }
+}

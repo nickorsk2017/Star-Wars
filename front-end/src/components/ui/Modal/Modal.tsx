@@ -30,7 +30,7 @@ const Modal: FC<PropsWithChildren<Props>> = ({ title, children, ref }) => {
           containerRef.current!.show();
         },
         close: () => {
-          containerRef.current!.show();
+          containerRef.current!.close();
         },
       };
     },
@@ -38,17 +38,14 @@ const Modal: FC<PropsWithChildren<Props>> = ({ title, children, ref }) => {
   );
 
   return (
-    <dialog ref={containerRef} className="modal">
-      <div className="modal-box text-black min-w-[800px] pb-14">
-        <h3 className="font-bold text-lg mb-6">{title}</h3>
-        <div className="max-h-[400px] overflow-auto text-left">{children}</div>
+    <dialog ref={containerRef} className="fa-modal">
+      <div className="fa-modal__body">
+        <h3 className="fa-modal__title">{title}</h3>
+        <div className="fa-modal__wrapper">{children}</div>
       </div>
-      <form
-        method="dialog"
-        className="modal-backdrop rounded-xl bg-[rgba(0,0,0,0.9)]"
-      >
+      <form method="dialog" className="fa-modal__backdrop">
         <button></button>
-        <button className="absolute right-10 top-10 text-white">X</button>
+        <button className="fa-modal__btn">X</button>
       </form>
     </dialog>
   );

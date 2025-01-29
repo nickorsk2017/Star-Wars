@@ -46,8 +46,8 @@ const InfoLoader: FC<Props> = ({ type, urls }) => {
   };
 
   return (
-    <div className="">
-      <button className="btn btn-primary min-w-40" onClick={loadData}>
+    <div className="fa-info-loader">
+      <button className="fa-info-loader__btn" onClick={loadData}>
         {type}
       </button>
 

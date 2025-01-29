@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-row-info {
+    @apply grid grid-cols-[50%_50%] sm:grid-cols-[112px_200px] text-left;
+  }
+}

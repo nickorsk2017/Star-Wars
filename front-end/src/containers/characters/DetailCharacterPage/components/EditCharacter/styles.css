@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .fa-edit-character {
+  }
+  .fa-detail__pencil {
+    @apply absolute right-5 top-5 cursor-pointer;
+  }
+  .fa-edit-character__btn {
+    @apply btn btn-primary w-full sm:w-auto mt-3;
+  }
+}
