@@ -34,7 +34,7 @@ const getKey = (props: {
 
 export const useListLoader = <T>(
   path: string,
-  queries: Record<string, string>
+  queries: Record<string, string>,
 ) => {
   const { data, error, isValidating, size, setSize } = useSWRInfinite<
     Responses.ResponseList<T>
@@ -50,7 +50,7 @@ export const useListLoader = <T>(
     {
       initialSize: 1,
       revalidateFirstPage: false,
-    }
+    },
   );
 
   const listData = useMemo(() => {

@@ -4,7 +4,7 @@ import useCharacterStore, { DetailCharacterState } from "./store";
 import { StoreApi } from "zustand";
 
 export const Context = createContext<StoreApi<DetailCharacterState> | null>(
-  null
+  null,
 );
 
 type Props = PropsWithChildren<{ initData: Entity.Character | null }>;

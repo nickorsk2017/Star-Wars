@@ -67,7 +67,7 @@ describe("Check TextInput component", () => {
         onSubmit={(value: FormValue) => {
           result = value;
         }}
-      />
+      />,
     );
 
     const inputNum = html.getByTestId("NumberInput");
@@ -78,7 +78,7 @@ describe("Check TextInput component", () => {
 
     await user.type(
       inputStr!,
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     );
 
     await user.click(html.getByRole("button"));
