@@ -2,7 +2,7 @@
 import { UseFormRegister } from "react-hook-form";
 import "./styles.css";
 
-type Props = {
+export type Props = {
   // using for testing
   inputTestId?: string;
   className?: string;
@@ -14,7 +14,7 @@ type Props = {
 
   name: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register: UseFormRegister<any>;
+  register?: UseFormRegister<any>;
   validation?: object;
 };
 
@@ -39,7 +39,7 @@ function TextInput({
         type={type}
         role="textbox"
         className="input input-bordered fa-input-text__inp"
-        {...register(name, validation)}
+        {...(register ? register(name, validation) : {})}
         disabled={disabled}
       />
       <div className="fa-input-text__err">{errorText}</div>

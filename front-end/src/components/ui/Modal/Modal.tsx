@@ -7,7 +7,7 @@ export type ModalHandler = {
   close: VoidFunction;
 };
 
-type Props = {
+export type Props = {
   title: string;
   open: boolean;
   onClose?: () => void;
