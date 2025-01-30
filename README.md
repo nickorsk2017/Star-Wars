@@ -24,7 +24,7 @@ The project used:
 - Typescript
 - Storybook - for visual testing UI Kit
 - Jest and Testing library for unit tests
-- ESlint and Pritier - for
+- ESlint and Pritier - for code style
 - GitHub - for code repository
 - Lodash.debounce
 
