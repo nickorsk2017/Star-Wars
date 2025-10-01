@@ -1,6 +1,4 @@
-@Author Stepanov Nikolai
-
-[https://t.me/nickstep_gr](https://t.me/nickstep_gr)
+@Author Nikolai Stepanov
 
 # Task description
 
