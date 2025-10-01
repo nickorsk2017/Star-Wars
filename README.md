@@ -12,7 +12,7 @@ On the main page, display a list or cards of characters, add the ability to pagi
 
 Implement a page with detailed information on the selected character. On this page, add the ability to edit and save information about the character locally, without sending it to the server.
 
-# Tools used
+# Tools
 
 The project used:
 
@@ -100,9 +100,5 @@ npm run format
 # The final chapter
 
 I appreciate the time you took to research my assignment.
-
-If you have any questions or problems, please write to my telegram:
-
-[https://t.me/nickstep_gr](https://t.me/nickstep_gr)
 
 Thank you very much.
